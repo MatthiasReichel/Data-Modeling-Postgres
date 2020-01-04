@@ -1,10 +1,11 @@
 # DROP TABLES
 
-songplay_table_drop = ("DROP TABLE IF EXISTS songplays")
-user_table_drop = ("DROP TABLE IF EXISTS users")
-song_table_drop = ("DROP TABLE IF EXISTS songs")
-artist_table_drop = ("DROP TABLE IF EXISTS artists")
-time_table_drop = ("DROP TABLE IF EXISTS time")
+songplay_table_drop = ("DROP TABLE IF EXISTS songplays CASCADE")
+user_table_drop = ("DROP TABLE IF EXISTS users CASCADE")
+song_table_drop = ("DROP TABLE IF EXISTS songs CASCADE")
+artist_table_drop = ("DROP TABLE IF EXISTS artists CASCADE")
+time_table_drop = ("DROP TABLE IF EXISTS time CASCADE")
+test_table_drop = ("DROP TABLE IF EXISTS test CASCADE")
 
 
 # CREATE FACT TABLE
@@ -19,7 +20,6 @@ songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (songplay_id SE
                                 location VARCHAR, 
                                 user_agent VARCHAR)""")
 
-
 # CREATE DIMENSION TABLES
 
 user_table_create = ("""CREATE TABLE IF NOT EXISTS users (user_id VARCHAR PRIMARY KEY, 
@@ -28,18 +28,6 @@ user_table_create = ("""CREATE TABLE IF NOT EXISTS users (user_id VARCHAR PRIMAR
                             gender VARCHAR, 
                             level VARCHAR)""")
 
-song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id VARCHAR PRIMARY KEY, 
-                            title VARCHAR NOT NULL, 
-                            artist_id VARCHAR NOT NULL,
-                            year INT, 
-                            duration FLOAT(20))""")
-
-artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (artist_id VARCHAR PRIMARY KEY, 
-                            name VARCHAR NOT NULL, 
-                            location VARCHAR NOT NULL, 
-                            latitude VARCHAR, 
-                            longitude VARCHAR)""")
-
 time_table_create = ("""CREATE TABLE IF NOT EXISTS time (start_time BIGINT PRIMARY KEY, 
                             hour INT NOT NULL, 
                             day INT NOT NULL, 
@@ -47,6 +35,19 @@ time_table_create = ("""CREATE TABLE IF NOT EXISTS time (start_time BIGINT PRIMA
                             month INT NOT NULL, 
                             year INT NOT NULL, 
                             weekday INT NOT NULL)""")
+
+song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id VARCHAR PRIMARY KEY,
+                            artist_id VARCHAR NOT NULL,
+                            song_title VARCHAR,
+                            album_title VARCHAR,
+                            year INT, 
+                            duration FLOAT(20))""")
+
+artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (artist_id VARCHAR PRIMARY KEY, 
+                            name VARCHAR NOT NULL, 
+                            location VARCHAR, 
+                            latitude DECIMAL(8,5), 
+                            longitude DECIMAL(8,5))""")
 
 
 # INSERT RECORDS
@@ -70,12 +71,13 @@ user_table_insert = ("""INSERT INTO users (user_id,
                         VALUES (%s, %s, %s, %s, %s)
                         ON CONFLICT DO NOTHING""")
 
-song_table_insert = ("""INSERT INTO songs (song_id, 
-                        title, 
+song_table_insert = ("""INSERT INTO songs (song_id,
                         artist_id, 
+                        song_title,
+                        album_title,
                         year, 
                         duration) 
-                        VALUES (%s, %s, %s, %s, %s)
+                        VALUES (%s, %s, %s, %s, %s, %s)
                         ON CONFLICT DO NOTHING""")
  
 artist_table_insert = ("""INSERT INTO artists (artist_id, 
@@ -96,11 +98,10 @@ time_table_insert = ("""INSERT INTO time (start_time,
                         VALUES (%s, %s, %s, %s, %s, %s, %s)
                         ON CONFLICT DO NOTHING""")
 
-
 # FIND SONGS
 
-song_select = ("""SELECT songs.song_id, songs.artist_id FROM songs JOIN artists ON songs.artist_id = artists.artist_id WHERE songs.title = %s AND artists.name = %s AND songs.duration = %s """)
-song_select_gender = ("""SELECT COUNT(users.gender), songplays.song_id FROM songplays JOIN users ON songplays.user_id = users.user_id WHERE users.gender = 'F' GROUP BY songplays.song_id""")
+#song_select = ("""SELECT songs.song_id, songs.artist_id FROM songs JOIN artists ON songs.artist_id = artists.artist_id WHERE songs.title = %s AND artists.name = %s AND songs.duration = %s """)
+#song_select_gender = ("""SELECT COUNT(users.gender), songplays.song_id FROM songplays JOIN users ON songplays.user_id = users.user_id WHERE users.gender = 'F' GROUP BY songplays.song_id""")
 
 # QUERY LISTS
 
