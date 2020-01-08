@@ -113,7 +113,7 @@ def transform_songplay_data(data, cur):
         None
     """
     # Get played songs based on user logs and artist- and song ids
-    for i, row in data.iterrows():
+    for row in data.iterrows():
 
         # Get songid and artistid from song and artist tables
         # indicating the played songs is available in song datasource
