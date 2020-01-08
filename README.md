@@ -1,4 +1,7 @@
-## Table of Contents
+###### Matthias Reichel |	[linkedin](https://www.linkedin.com/in/matthiasreichel/) | [Email](mailto:Matthias.K.Reichel@gmail.com)
+
+
+# Table of Contents
 
 - [Introduction](#introduction)
 - [Project Structure](#project-structure)
@@ -7,6 +10,8 @@
 - [Roadmap](#roadmap)
 - [Installation](#installation)
 - [Disclaimer](#disclaimer)
+
+___
 
 # Introduction
 
@@ -23,7 +28,7 @@ WIP
 # Architecture
 
 The application depends on two different datasources (HDF5 and JSON). Both are are uploaded to an simple storage system (S3). As part of the exercice a postgres
-database is set-up and ETL process implemented. The normalized data are exposed as Rest service which is consumed by an React dashboard.
+database is set-up and an ETL process implemented. Finally the normalized data are exposed as Rest service which is consumed by an React dashboard.
 
 ![alt Image not available](https://raw.githubusercontent.com/MatthiasReichel/Data-Modeling-Postgres/master/img/Architecture.PNG)
 
@@ -34,7 +39,12 @@ WIP
 
 # Roadmap
 
-WIP
+- [x] Create Postgres server and database
+- [x] Design datamodel and create tables
+- [x] Implementation ETL Process
+- [ ] Create RESTful API for data consumption
+- [ ] Consum data via React dashboard
+- [ ] Deploy application on AWS
 
 # Installation
 
@@ -43,5 +53,5 @@ WIP
 # Disclaimer
 
 Originally the project was created as part of the Udacity Nanodegree certificaton. However, to add complexity the scope
-of the project was extended adding additional datasources as well as a middle and frontend layer aiming.
-Note that the project is WIP and may change according to the roadmap.
+of the project was extended adding additional datasources as well as a middle and frontend layer.
+Note that the status of the project is tracked via the roadmap.
