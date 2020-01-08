@@ -4,16 +4,17 @@ from sql_queries import create_table_queries, drop_table_queries
 
 def create_database():
     # connect to default database
-    conn = psycopg2.connect("host=localhost dbname=musicdb")
-    conn.set_session(autocommit=True)
-    cur = conn.cursor()
+    #conn = psycopg2.connect("host=localhost dbname=musicdb")
+    #conn.set_session(autocommit=True)
+    #cur = conn.cursor()
     
-    # create sparkify database with UTF8 encoding
-    #cur.execute("DROP DATABASE IF EXISTS sparkifydb")
-    #cur.execute("CREATE DATABASE sparkifydb WITH ENCODING 'utf8' TEMPLATE template0")
+    # create musicdb database with UTF8 encoding to avoid win1252 related encoding issues
+    
+   # cur.execute("DROP DATABASE IF EXISTS musicdb")
+   # cur.execute("CREATE DATABASE musicdb WITH ENCODING 'utf8' TEMPLATE template0")
 
     # close connection to default database
-    conn.close()    
+    #conn.close()    
     
     # connect to musicdb database
     conn = psycopg2.connect("host=localhost dbname=musicdb")

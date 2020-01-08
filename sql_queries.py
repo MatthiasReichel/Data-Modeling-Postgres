@@ -11,7 +11,7 @@ test_table_drop = ("DROP TABLE IF EXISTS test CASCADE")
 # CREATE FACT TABLE
 
 songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (songplay_id SERIAL PRIMARY KEY, 
-                                start_time BIGINT, 
+                                start_time BIGINT REFERENCES time (start_time), 
                                 user_id VARCHAR REFERENCES users (user_id), 
                                 level VARCHAR, 
                                 song_id VARCHAR REFERENCES songs (song_id), 
@@ -44,8 +44,7 @@ song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id VARCHAR PRIMAR
                             duration FLOAT(20))""")
 
 artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (artist_id VARCHAR PRIMARY KEY, 
-                            name VARCHAR NOT NULL, 
-                            location VARCHAR, 
+                            name VARCHAR NOT NULL,
                             latitude DECIMAL(8,5), 
                             longitude DECIMAL(8,5))""")
 
@@ -81,11 +80,10 @@ song_table_insert = ("""INSERT INTO songs (song_id,
                         ON CONFLICT DO NOTHING""")
  
 artist_table_insert = ("""INSERT INTO artists (artist_id, 
-                            name, 
-                            location, 
+                            name,  
                             latitude, 
                             longitude) 
-                            VALUES (%s, %s, %s, %s, %s)
+                            VALUES (%s, %s, %s, %s)
                             ON CONFLICT DO NOTHING""")
 
 time_table_insert = ("""INSERT INTO time (start_time, 
@@ -100,8 +98,9 @@ time_table_insert = ("""INSERT INTO time (start_time,
 
 # FIND SONGS
 
-#song_select = ("""SELECT songs.song_id, songs.artist_id FROM songs JOIN artists ON songs.artist_id = artists.artist_id WHERE songs.title = %s AND artists.name = %s AND songs.duration = %s """)
-#song_select_gender = ("""SELECT COUNT(users.gender), songplays.song_id FROM songplays JOIN users ON songplays.user_id = users.user_id WHERE users.gender = 'F' GROUP BY songplays.song_id""")
+song_select = ("""SELECT songs.song_id, artists.artist_id FROM 
+                  songs JOIN artists ON songs.artist_id = artists.artist_id
+                  WHERE songs.song_title = %s AND artists.name = %s""")
 
 # QUERY LISTS
 
