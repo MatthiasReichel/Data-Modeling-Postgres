@@ -1,4 +1,4 @@
-###### Matthias Reichel |	[linkedin](https://www.linkedin.com/in/matthiasreichel/) | [Email](mailto:Matthias.K.Reichel@gmail.com)
+###### Matthias Reichel |	[Linkedin](https://www.linkedin.com/in/matthiasreichel/) | [Email](mailto:Matthias.K.Reichel@gmail.com)
 
 
 # Table of Contents
@@ -15,9 +15,8 @@ ___
 
 # Introduction
 
-The goal of the project is to provide an prototype following an end-to-end approach. Hereby, the application
-should e.g. allow a business user to analyze user logs about played music songs. The leveraged technologies are hosted 
-on Amazon Web Services (AWS) but can be run locally. The song data used are available on 
+The goal of the project is to provide an end-to-end solution covering different technology stacks. Ultimately the application
+should enable an user to analyze user logs about played songs and details about related artists. The song data used are available on 
 <a href="http://millionsongdataset.com/pages/getting-dataset/" target="_blank">Million Song Dataset Webpage</a>. 
 The user logs have been generated using the eventsim generator available on <a href="https://github.com/Interana/eventsim" target="_blank">Interana Github</a>.  
 
@@ -42,11 +41,13 @@ WIP
 - [x] Create Postgres server and database
 - [x] Design datamodel and create tables
 - [x] Implementation ETL Process
-- [ ] Create RESTful API for data consumption
+- [ ] Create RESTful API for music data consumption
 - [ ] Consum data via React dashboard
 - [ ] Deploy application on AWS
 
 # Installation
+
+The application is (temporarily) available on Amazon Web Services (AWS). However, the application can be run locally following the steps below:
 
 WIP
 
