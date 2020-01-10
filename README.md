@@ -53,9 +53,9 @@ The project structure shows all files needed to understand and run the applicati
 the project structure may change as the project evolves (see [roadmap](#roadmap)).
 
 ```
-├── img				# Images for readme.md
-├── src				 # All app source files
-│	├── api			# WIP
+├── img | # Images for readme.md
+├── src <p align="right">All app source files</p> # 
+│	├── api <p align="right"># WIP</p>			
 │	├── batch		# WIP
 │	├── data		  # Source data
 │	│	├── log_data                # Json files
