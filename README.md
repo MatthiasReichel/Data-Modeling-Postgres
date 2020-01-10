@@ -52,19 +52,19 @@ The roadmap tracks status quo of the project:
 The project structure shows all files needed to understand and run the application. Note that
 the project structure may change as the project evolves (see [roadmap](#roadmap)).
 
-├── img # Images for readme.md
-├── src # All app source files 
-│	├── api         # WIP
-│	├── batch		# WIP
-│	├── data        # Source data
-│	│	├── log_data    # Json files
-│	│	└── song_data   # HDF5 files
-│	├── webapp      # WIP
-│	└── etl	        #  All ETL related files
-│		├── create_tables.py    # Manage connections and database tables
-│		├── etl.py	            # Handles ETL process
-│		└── sql_queries.py      # Execute table manipulation and querying
-└── readme.md	 # Project description
+```
+├── src   # All app source files 
+│   ├── api         # WIP
+│   ├── batch		# WIP
+│   ├── data        # Source data
+│   │   └── log_data    # Json files
+│   │   └── song_data    # # HDF5 files
+│   ├── webapp      # WIP
+│   └── etl	        #  All ETL related files
+│       ├── create_tables.py    # Manage connections and database tables
+│       ├── etl.py	            # Handles ETL processs
+│       └── sql_queries.py      # Execute table manipulation and querying
+└── readme.md   # Project description
 ```
 
 # Installation
