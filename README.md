@@ -1,24 +1,24 @@
 ###### Matthias Reichel |	[Linkedin](https://www.linkedin.com/in/matthiasreichel/) | [Email](mailto:Matthias.K.Reichel@gmail.com)
 
 
-# Data-Modeling-Postgres
-
-The goal of the project is to provide an end-to-end solution applying technology stacks related to data engineering and API
-development. Ultimately the application enables an enduser to analyze user logs about played songs and details about related artists. 
-The song data being used are available on <a href="http://millionsongdataset.com/pages/getting-dataset/" target="_blank">Million Song Dataset Webpage</a>. 
-The user logs have been generated using the eventsim generator available on <a href="https://github.com/Interana/eventsim" target="_blank">Interana Github</a>.  
-
 # Table of Contents
 
-- [Project Structure](#project-structure)
+- [Scope](#scope)
 - [Architecture](#architecture)
 - [Data Model](#data-model)
 - [Roadmap](#roadmap)
+- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Disclaimer](#disclaimer)
 
 ___
 
+# Scope
+
+The goal of the project is to provide an end-to-end solution applying technology stacks related to data engineering and API
+development. Ultimately the application enables an enduser to analyze user logs about played songs and details about related artists. 
+The song data being used are available on <a href="http://millionsongdataset.com/pages/getting-dataset/" target="_blank">Million Song Dataset Webpage</a>. 
+The user logs have been generated using the eventsim generator available on <a href="https://github.com/Interana/eventsim" target="_blank">Interana Github</a>.
 
 # Architecture
 
@@ -58,8 +58,8 @@ the project structure may change as the project evolves (see [roadmap](#roadmap)
 │	├── api                         # WIP
 │	├── batch                       # WIP
 │   ├── data                        # Source data
-│       ├── log_data                # Json files
-│	    └── song_data               # HDF5 files
+│	│	├── log_data                # Json files
+│	│	└── song_data               # HDF5 files
 │	├── webapp                      # WIP
 │	└── etl                         # All ETL related files
 │		├── create_tables.py        # Manage connections and database tables
