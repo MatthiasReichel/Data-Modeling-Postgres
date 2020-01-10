@@ -20,26 +20,6 @@ The user logs have been generated using the eventsim generator available on <a h
 ___
 
 
-# Project Structure
-
-The pictured project structure shows all files needed to run the application. Note that
-the project structure may change as the project evolves (see roadmap(#roadmap)).
-
-```
-	Data-Modeling-Postgres
-    +-- img							# Images for readme.md
-	+--	data						# Contains datasources for project
-    +-- src                     	# Source folder contains app
-    ¦   +-- api						# WIP
-    ¦   +-- batch					# WIP
-    ¦   +-- data					# Files for ETL 
-    ¦		+-- create_tables.py	# Manage connection and tables        		
-	¦		+-- etl.py				# Handles ETL process
-	¦		+-- sql_queries.py		# Execute table manipulation and querying
-	¦-- readme.md					# Contains project description
-	+-- ...
-```
-
 # Architecture
 
 The application depends on two different datasources (HDF5 and JSON). Both are are uploaded to an simple storage system (S3). As part of the exercice a postgres
@@ -58,14 +38,35 @@ details about played songs. The relationship (references) between the entity cla
 
 # Roadmap
 
-The roadmap describes status quo of the project:
+The roadmap tracks status quo of the project:
 
 - [x] Create Postgres server and database
 - [x] Design datamodel and create tables
-- [x] Implementation ETL Process
-- [ ] Create RESTful API for music data consumption
+- [x] Implement ETL Process
+- [ ] Create RESTful API
 - [ ] Consum data via React dashboard
 - [ ] Deploy application on AWS
+
+# Project Structure
+
+The project structure shows all files needed to understand and run the application. Note that
+the project structure may change as the project evolves (see [roadmap](#roadmap)).
+
+```
+├── img                             # Images for readme.md       
+├── src                             # All app source files
+│	├── api                         # WIP
+│	├── batch                       # WIP
+│   ├── data                        # Source data
+│       ├── log_data                # Json files
+│	    └── song_data               # HDF5 files
+│	├── webapp                      # WIP
+│	└── etl                         # All ETL related files
+│		├── create_tables.py        # Manage connections and database tables
+│		├── etl.py                  # Handles ETL process
+│		└── sql_queries.py          # Execute table manipulation and querying
+└── readme.md                       # Project description
+```
 
 # Installation
 
@@ -78,12 +79,13 @@ be found <a href="https://medium.com/@FranckPachot/postgresql-and-jupyter-notebo
 To create and execute the ETL pipeline, execute following commands from your terminal:
 
 ```
-cd ..\Data-Modeling-Postgres\src\data	# Move to the folder with the src files
-python create_tables.py					# Build database and empty tables
-python etl.py							# Populate tables
+cd ..\Data-Modeling-Postgres\src\data   # Move to the folder with the src files
+python create_tables.py                 # Build database and empty tables
+python etl.py                           # Execute ETL pipeline and populate tables
+```
 
 # Disclaimer
 
 Originally the project was created as part of the Udacity Nanodegree certificaton. However, to add complexity the scope
 of the project was extended adding additional datasources as well as a middle and frontend layer.
-Note that the status of the project is tracked via the roadmap(#roadmap).
+Note that the status of the project is tracked via the [roadmap](#roadmap).
