@@ -38,7 +38,7 @@ def process_song_file(cur, filepath):
     cur.execute(artist_table_insert, artist_data)
     cur.execute(song_table_insert, song_data)
 
-    def process_log_file(cur, filepath):
+def process_log_file(cur, filepath):
     """
     Extract data in log files from datasource and manage the transformation of the data
     
@@ -113,8 +113,7 @@ def transform_songplay_data(data, cur):
         None
     """
     # Get played songs based on user logs and artist- and song ids
-    for row in data.iterrows():
-
+    for i, row in data.iterrows():
         # Get songid and artistid from song and artist tables
         # indicating the played songs is available in song datasource
         cur.execute(song_select, (row.song, row.artist))
@@ -172,8 +171,8 @@ def main():
     """ 
     conn = psycopg2.connect("host=localhost dbname=musicdb")
     cur = conn.cursor()
-    process_data(cur, conn, filepath='data/song_data', func=process_song_file, filetyp='*.h5')
-    process_data(cur, conn, filepath='data/log_data', func=process_log_file, filetyp='*.json')
+    process_data(cur, conn, filepath='../data/song_data', func=process_song_file, filetyp='*.h5')
+    process_data(cur, conn, filepath='../data/log_data', func=process_log_file, filetyp='*.json')
 
 if __name__ == "__main__":
     main()

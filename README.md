@@ -54,16 +54,16 @@ the project structure may change as the project evolves (see [roadmap](#roadmap)
 
 ```
 ├── src   # All app source files 
-│   ├── api         # WIP
-│   ├── batch		# WIP
-│   ├── data        # Source data
+│   ├── api     # WIP
+│   ├── batch   # WIP
+│   ├── data    # Source data
 │   │   └── log_data    # Json files
-│   │   └── song_data    # # HDF5 files
-│   ├── webapp      # WIP
-│   └── etl	        #  All ETL related files
-│       ├── create_tables.py    # Manage connections and database tables
-│       ├── etl.py	            # Handles ETL processs
-│       └── sql_queries.py      # Execute table manipulation and querying
+│   │   └── song_data   # HDF5 files
+│   ├── webapp  # WIP
+│   └── etl     #  All ETL related files
+│       ├── create_tables.py   # Manage connections and database tables
+│       ├── etl.py             # Handles ETL processs
+│       └── sql_queries.py     # Execute table manipulation and querying
 └── readme.md   # Project description
 ```
 
@@ -85,6 +85,6 @@ python etl.py                           # Execute ETL pipeline and populate tabl
 
 # Disclaimer
 
-Originally the project was created as part of the Udacity Nanodegree certificaton. However, to add complexity the scope
+Originally the project was created as part of the Udacity Data Engineering Nanodegree certification. However, to add complexity the scope
 of the project was extended adding additional datasources as well as a middle and frontend layer.
 Note that the status of the project is tracked via the [roadmap](#roadmap).
