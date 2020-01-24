@@ -22,13 +22,13 @@ songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (songplay_id SE
 
 # CREATE DIMENSION TABLES
 
-user_table_create = ("""CREATE TABLE IF NOT EXISTS users (user_id VARCHAR PRIMARY KEY, 
+user_table_create = ("""CREATE TABLE IF NOT EXISTS users (user_id VARCHAR PRIMARY KEY,
                             first_name VARCHAR, 
                             last_name VARCHAR, 
                             gender VARCHAR, 
                             level VARCHAR)""")
 
-time_table_create = ("""CREATE TABLE IF NOT EXISTS time (start_time BIGINT PRIMARY KEY, 
+time_table_create = ("""CREATE TABLE IF NOT EXISTS time (start_time BIGINT PRIMARY KEY,
                             hour INT NOT NULL, 
                             day INT NOT NULL, 
                             week INT NOT NULL, 
