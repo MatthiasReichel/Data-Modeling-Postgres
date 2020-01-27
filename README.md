@@ -43,9 +43,9 @@ The roadmap tracks status quo of the project:
 - [x] Create Postgres server and database
 - [x] Design datamodel and create tables
 - [x] Implement ETL Process
-- [ ] Create RESTful API
+- [x] Create GraphQL API
 - [ ] Consum data via React dashboard
-- [ ] Deploy application on AWS
+- [ ] Containerize application
 
 # Project Structure
 
@@ -81,6 +81,15 @@ To create and execute the ETL pipeline, execute following commands from your ter
 cd ..\Data-Modeling-Postgres\src\data   # Move to the folder with the src files
 python create_tables.py                 # Build database and empty tables
 python etl.py                           # Execute ETL pipeline and populate tables
+```
+
+To setup the GraphQL API migrate the django graphene framework into the database:
+
+```
+cd ..\Data-Modeling-Postgres\src\api   # Move to the folder with the managep.py file
+python manage.py makemigrations        # Prepare models in music/models.py for migration
+python manage.py migrate        	   # Migrate models into database
+python manage.py runserver 7000		   # Run GraphQL server on locally on port 7000 
 ```
 
 # Disclaimer
